@@ -9,6 +9,8 @@ namespace ZombieParty.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        
+        // Todo lo de localisador es para la traduciion 
         private readonly IStringLocalizer<HomeController> _localizer;
 
         public HomeController(ILogger<HomeController> logger, IStringLocalizer<HomeController> localizer)
@@ -19,11 +21,17 @@ namespace ZombieParty.Controllers
 
         public IActionResult Index()
         {
+
+            ViewData["Title"] = _localizer["HomeIndexTitle"];
+
             return View();
         }
 
         public IActionResult Privacy()
         {
+
+            ViewBag.Title = _localizer["PrivacyTitle"];
+
             return View();
         }
 
